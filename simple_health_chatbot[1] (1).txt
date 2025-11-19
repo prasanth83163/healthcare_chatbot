@@ -1,0 +1,47 @@
+import random
+
+# Health tips
+tips = {
+    "general": [
+        "Drink 2–3 liters of water daily.",
+        "Get 7–8 hours of sleep every night.",
+        "Wash hands frequently to avoid infections."
+    ],
+    "diet": [
+        "Include fruits and vegetables in every meal.",
+        "Reduce sugar and processed foods.",
+        "Eat slowly for better digestion."
+    ],
+    "fitness": [
+        "Walk 10 minutes after meals.",
+        "Do stretching for 5 minutes daily.",
+        "Try to achieve 8,000–10,000 steps a day."
+    ],
+    "mental": [
+        "Take 5 deep breaths when stressed.",
+        "Spend time doing something you love.",
+        "Limit screen time to reduce anxiety."
+    ]
+}
+
+def get_tip(category):
+    if category in tips:
+        return random.choice(tips[category])
+    return "Sorry, I don't have tips for that category."
+
+print("🤖 Healthcare Chatbot Started!")
+print("Type: general / diet / fitness / mental / exit")
+
+while True:
+    user = input("\nYou: ").lower()
+
+    if user == "exit":
+        print("Chatbot: Stay healthy! Goodbye 😊")
+        break
+
+    elif user in tips:
+        print("Chatbot:", get_tip(user))
+
+    else:
+        print("Chatbot: I can give tips in these categories: general, diet, fitness, mental.")
+        print("Try typing one of them.")
